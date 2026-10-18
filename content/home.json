@@ -9,7 +9,7 @@
     "CRM Setup",
     "Social Media"
   ],
-  "cta_secondary": "📞 {phone}",
+  "cta_secondary": "phone",
   "process": [
     {
       "title": "Discover",
