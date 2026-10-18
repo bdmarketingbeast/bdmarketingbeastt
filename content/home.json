@@ -1,0 +1,81 @@
+{
+  "seo_title": "Bd Marketing Beast | Facebook Ads, Google Ads & Website Development",
+  "seo_description": "Bd Marketing Beast is a performance marketing agency. Facebook Ads, Google Ads, website development, SEO and funnels for businesses worldwide. Call 01776272503.",
+  "hero_badge": "Taking new clients worldwide",
+  "hero_title": "Ads and websites that",
+  "hero_highlight": "turn clicks into customers.",
+  "hero_lead": "Bd Marketing Beast runs Facebook Ads and Google Ads, and builds fast, custom websites, for businesses that want real leads and real sales, not just traffic.",
+  "cta_primary": "Get a free strategy call →",
+  "cta_secondary": "📞 {phone}",
+  "trust": [
+    "Serving clients worldwide",
+    "Custom-coded websites",
+    "Built around leads, not likes"
+  ],
+  "marquee": [
+    "Facebook Ads",
+    "Google Ads",
+    "Website Development",
+    "SEO",
+    "Sales Funnels",
+    "CRM Setup",
+    "Social Media"
+  ],
+  "services": [
+    {
+      "title": "Facebook & Instagram Ads",
+      "text": "Scroll-stopping creatives and tight targeting that bring in leads and orders at a cost that makes sense.",
+      "bullets": ["Campaign setup and scaling", "Creative and copy testing", "Pixel and conversion tracking"],
+      "icon": "megaphone"
+    },
+    {
+      "title": "Google Ads",
+      "text": "Show up the moment people search for what you sell, and pay only for the clicks that matter.",
+      "bullets": ["Search and Performance Max", "Keyword and negative-keyword control", "Call and form tracking"],
+      "icon": "search"
+    },
+    {
+      "title": "Website Development",
+      "text": "Fast, custom-coded sites designed to convert, with clear calls to action and a layout built for phones first.",
+      "bullets": ["Conversion-focused design", "Speed and mobile optimized", "Landing pages and full sites"],
+      "icon": "monitor"
+    },
+    {
+      "title": "SEO",
+      "text": "Climb the search results and get steady, free traffic that keeps working month after month.",
+      "bullets": ["On-page and technical SEO", "Content and local SEO", "Clear reporting"],
+      "icon": "trend"
+    },
+    {
+      "title": "Funnels & CRM Setup",
+      "text": "Capture every lead, follow up automatically and see exactly where your sales come from.",
+      "bullets": ["Lead capture funnels", "Automated follow-ups", "Pipeline and reporting"],
+      "icon": "funnel"
+    },
+    {
+      "title": "Social Media Management",
+      "text": "Consistent, on-brand content that builds trust and keeps your audience engaged between ad campaigns.",
+      "bullets": ["Content planning and posting", "Community engagement", "Monthly performance review"],
+      "icon": "user"
+    }
+  ],
+  "stats": [
+    { "count": 6, "suffix": "", "text": "", "label": "Core services" },
+    { "count": 24, "suffix": "h", "text": "", "label": "Reply time" },
+    { "count": 100, "suffix": "%", "text": "", "label": "Custom-coded sites" },
+    { "text": "Global", "label": "Clients worldwide" }
+  ],
+  "process": [
+    { "title": "Discover", "text": "A free call to understand your business, your customers and your goals." },
+    { "title": "Strategy", "text": "A clear plan for ads, website and tracking, with no jargon." },
+    { "title": "Launch", "text": "We build, test and go live fast, with tracking on from day one." },
+    { "title": "Optimize", "text": "We watch the numbers, cut what fails and scale what works." }
+  ],
+  "faq": [
+    { "question": "Do you work with clients outside Bangladesh?", "answer": "Yes. We work with businesses worldwide and run calls and reporting online." },
+    { "question": "Which service should I start with?", "answer": "It depends on your goal. Most businesses start with ads plus a conversion-focused website. Book a free call and we will recommend the best first step." },
+    { "question": "How fast can my website be ready?", "answer": "Timelines depend on the size of the project. We will give you a clear schedule after the first call." },
+    { "question": "What budget do I need for ads?", "answer": "We will suggest a starting budget based on your industry, location and goals during the strategy call." },
+    { "question": "How will I know it is working?", "answer": "We set up tracking for calls, forms and sales, and share clear reports so you can see the results." }
+  ]
+}

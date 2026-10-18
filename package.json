@@ -1,0 +1,16 @@
+{
+  "name": "bd-marketing-beast-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bd Marketing Beast website, built from content files by build.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "marked": "^12.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,126 @@
+backend:
+  name: github
+  repo: bdmarketingbeastt/bdmarketingbeast
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+locale: "en"
+
+collections:
+  # ---------------------------------------------------------------- BLOG
+  - name: "blog"
+    label: "Blog posts"
+    label_singular: "Blog post"
+    folder: "content/blog"
+    create: true
+    extension: "md"
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false }
+      - { label: "Category (small label on the card)", name: "category", widget: "string", default: "Marketing" }
+      - { label: "Short summary (shown on the blog page card)", name: "summary", widget: "text" }
+      - { label: "Card image", name: "image", widget: "image", required: false, hint: "Wide photo works best (16:9)." }
+      - { label: "Draft (tick to hide this post from the website)", name: "draft", widget: "boolean", default: false }
+      - { label: "Post content", name: "body", widget: "markdown" }
+
+  # --------------------------------------------------------- EXTRA PAGES
+  - name: "pages"
+    label: "Extra pages"
+    label_singular: "Page"
+    folder: "content/pages"
+    create: true
+    extension: "md"
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - { label: "Page title", name: "title", widget: "string" }
+      - { label: "Description for Google (one sentence)", name: "description", widget: "text", required: false }
+      - { label: "Draft (tick to hide this page from the website)", name: "draft", widget: "boolean", default: false }
+      - { label: "Page content", name: "body", widget: "markdown" }
+
+  # ------------------------------------------------------------ SETTINGS
+  - name: "site"
+    label: "Site settings"
+    files:
+      - label: "Phone, tracking, colors and menu"
+        name: "settings"
+        file: "content/settings.json"
+        fields:
+          - { label: "Phone number (as shown on the site)", name: "phone_display", widget: "string" }
+          - { label: "Phone number with country code, digits only", name: "phone_intl", widget: "string", hint: "Example: 8801776272503 (used for call and WhatsApp buttons)" }
+          - { label: "Google Tag Manager ID", name: "gtm_id", widget: "string", required: false, hint: "Looks like GTM-ABC1234. Leave empty if you do not use it yet." }
+          - { label: "Form key (Web3Forms access key)", name: "web3forms_key", widget: "string", hint: "Leads from the contact form are emailed using this key." }
+          - { label: "Website address (optional)", name: "site_url", widget: "string", required: false, hint: "Add once your own domain is live, like https://yourdomain.com . Helps Google." }
+          - { label: "Main blue color", name: "brand_blue", widget: "color", allowInput: true }
+          - { label: "Accent color (light blue)", name: "brand_cyan", widget: "color", allowInput: true }
+          - { label: "Background color", name: "brand_background", widget: "color", allowInput: true }
+          - label: "Menu links"
+            name: "nav"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Name", name: "label", widget: "string" }
+              - { label: "Link", name: "url", widget: "string", hint: "Examples: /#services , /blog/ , /about/" }
+
+      - label: "Home page text"
+        name: "home"
+        file: "content/home.json"
+        fields:
+          - { label: "Google title", name: "seo_title", widget: "string" }
+          - { label: "Google description", name: "seo_description", widget: "text" }
+          - { label: "Top badge text", name: "hero_badge", widget: "string" }
+          - { label: "Main headline (white part)", name: "hero_title", widget: "string" }
+          - { label: "Main headline (blue highlighted part)", name: "hero_highlight", widget: "string" }
+          - { label: "Text under the headline", name: "hero_lead", widget: "text" }
+          - { label: "Main button text", name: "cta_primary", widget: "string" }
+          - { label: "Call button text (use {phone} for your number)", name: "cta_secondary", widget: "string" }
+          - label: "Trust points (under the buttons)"
+            name: "trust"
+            widget: "list"
+            field: { label: "Point", name: "point", widget: "string" }
+          - label: "Scrolling strip words"
+            name: "marquee"
+            widget: "list"
+            field: { label: "Word", name: "word", widget: "string" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Service name", name: "title", widget: "string" }
+              - { label: "Short description", name: "text", widget: "text" }
+              - label: "Bullet points"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Bullet", name: "bullet", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["megaphone", "search", "monitor", "trend", "funnel", "user", "mail", "star", "phone", "chart"]
+          - label: "Numbers strip"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Counting number (leave empty to show words instead)", name: "count", widget: "number", value_type: "int", required: false }
+              - { label: "After the number (like % or h)", name: "suffix", widget: "string", required: false }
+              - { label: "Words instead of a number (like Global)", name: "text", widget: "string", required: false }
+              - { label: "Label under it", name: "label", widget: "string" }
+          - label: "Process steps"
+            name: "process"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Step name", name: "title", widget: "string" }
+              - { label: "Description", name: "text", widget: "text" }
+          - label: "Questions and answers (FAQ)"
+            name: "faq"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
