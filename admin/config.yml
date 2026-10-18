@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: bdmarketingbeastt/bdmarketingbeast
+  repo: bdmarketingbeast/bdmarketingbeast
   branch: main
 
 media_folder: "uploads"
