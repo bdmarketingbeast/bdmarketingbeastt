@@ -1,18 +1,36 @@
 {
-  "phone_display": "01776272503",
-  "phone_intl": "8801776272503",
-  "gtm_id": "",
-  "web3forms_key": "542f5e86-bf1f-4525-8502-2c82b6a9c4fb",
-  "site_url": "",
-  "brand_blue": "#1e6bff",
-  "brand_cyan": "#38bdf8",
-  "brand_background": "#05060a",
   "nav": [
-    { "label": "Services", "url": "/#services" },
-    { "label": "Process", "url": "/#process" },
-    { "label": "Why Us", "url": "/#why" },
-    { "label": "FAQ", "url": "/#faq" },
-    { "label": "Blog", "url": "/blog/" },
-    { "label": "Contact", "url": "/#contact" }
-  ]
+    {
+      "label": "Services",
+      "url": "/#services"
+    },
+    {
+      "label": "Process",
+      "url": "/#process"
+    },
+    {
+      "label": "Why Us",
+      "url": "/#why"
+    },
+    {
+      "label": "FAQ",
+      "url": "/#faq"
+    },
+    {
+      "label": "Blog",
+      "url": "/blog/"
+    },
+    {
+      "label": "Contact",
+      "url": "/#contact"
+    }
+  ],
+  "brand_background": "#05060a",
+  "phone_intl": "8801776272503",
+  "web3forms_key": "542f5e86-bf1f-4525-8502-2c82b6a9c4fb",
+  "phone_display": "01776272503",
+  "brand_blue": "#1e6bff",
+  "site_url": "",
+  "gtm_id": "GTM-P9JS8JJ4",
+  "brand_cyan": "#38bdf8"
 }
