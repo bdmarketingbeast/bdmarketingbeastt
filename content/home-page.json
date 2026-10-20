@@ -3,21 +3,21 @@
   "seo_description": "Bd Marketing Beast is a performance marketing agency. Facebook Ads, Google Ads, website development, SEO and funnels for businesses worldwide. Call 01776272503.",
   "sections": [
     {
-      "type": "hero",
-      "anchor": "top",
-      "badge": "Taking new clients worldwide",
-      "title": "Ads and Marketing that *turn clicks into customers.*",
-      "lead": "Bd Marketing Beast runs Facebook Ads and Google Ads, and builds fast, custom websites, for businesses that want real leads and real sales, not just traffic.",
-      "button_text": "Get a free strategy call →",
+      "badge": "Taking new clients bd",
+      "animation": true,
       "button_link": "/#contact",
       "button2_text": "01776272503",
-      "button2_link": "call",
+      "anchor": "top",
+      "title": "Ads and Marketing that *turn clicks into customers.*",
       "trust": [
         "Serving clients worldwide",
         "Custom-coded websites",
         "Built around leads, not likes"
       ],
-      "animation": true
+      "button2_link": "call",
+      "button_text": "Get a free strategy call →",
+      "type": "hero",
+      "lead": "Bd Marketing Beast runs Facebook Ads and Google Ads, and builds fast, custom websites, for businesses that want real leads and real sales, not just traffic."
     },
     {
       "type": "marquee",
@@ -155,12 +155,6 @@
       "background": "normal"
     },
     {
-      "type": "features",
-      "anchor": "why",
-      "eyebrow": "Why {brand}",
-      "title": "Marketing that is *measured*, not guessed",
-      "background": "alt",
-      "side": "chart",
       "items": [
         {
           "title": "Focused on leads and sales",
@@ -175,7 +169,6 @@
           "text": "You always know what is working and where the budget goes."
         }
       ],
-      "chart_title": "Sample growth view (illustration)",
       "chart_values": [
         22,
         34,
@@ -185,7 +178,14 @@
         78,
         92
       ],
-      "chart_note": "Illustration only. Replace with a real client result and chart."
+      "eyebrow": "Why {brand}",
+      "background": "alt",
+      "chart_note": "Illustration only. Replace with a real client result and chart.",
+      "anchor": "why",
+      "side": "chart",
+      "chart_title": "Sample growth view (illustration)",
+      "title": "Marketing that is *measured*, not guessed",
+      "type": "features"
     },
     {
       "type": "faq",
@@ -217,11 +217,16 @@
       "background": "normal"
     },
     {
-      "type": "contact",
-      "anchor": "contact",
+      "phone_placeholder": "+880 1XXX XXXXXX",
       "eyebrow": "Let's talk",
-      "title": "Ready to grow? *Get your free strategy call.*",
       "text": "Call or message us. Serving businesses worldwide.",
+      "note": "We reply within 24 hours. Your details stay private.",
+      "anchor": "contact",
+      "title": "Ready to grow? *Get your free strategy call.*",
+      "thank_you_url": "/thank-you.html",
+      "button_text": "Send my request →",
+      "type": "contact",
+      "message_placeholder": "e.g. I want more leads from Facebook",
       "services": [
         "Facebook Ads",
         "Google Ads",
@@ -230,12 +235,7 @@
         "Sales Funnels / CRM",
         "Social Media",
         "Not sure yet"
-      ],
-      "message_placeholder": "e.g. I want more leads from Facebook",
-      "phone_placeholder": "+880 1XXX XXXXXX",
-      "button_text": "Send my request →",
-      "note": "We reply within 24 hours. Your details stay private.",
-      "thank_you_url": "/thank-you.html"
+      ]
     }
   ]
 }
