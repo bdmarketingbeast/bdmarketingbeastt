@@ -189,10 +189,12 @@ const ICONS = {
 /* ------------------------------------------------------------------ blocks (sections) */
 const R = {};
 
-R.hero = (b) => {
+R.hero = (b, x) => {
+  const hf = isObj(b.form) && b.form.enabled ? b.form : null;
+  if (hf) x.forms += 1;
   const buttons = [btn('primary', b.button_text, b.button_link), btn('ghost', b.button2_text, b.button2_link)].filter(Boolean).join('\n      ');
   const trust = arr(b.trust).map(str).filter(Boolean);
-  return `<section class="hero${b.short ? ' short' : ''}"${idAttr(b)}>
+  return `<section class="hero${b.short ? ' short' : ''}${b.center ? ' center' : ''}"${idAttr(b)}>
   ${b.image ? img(b.image, '', 'bgimg', false) : ''}
   ${b.animation === false ? '' : '<canvas id="net"></canvas>'}
   <div class="wrap">
@@ -200,6 +202,7 @@ R.hero = (b) => {
     <h1 class="rv d1">${H(b.title)}</h1>
     ${str(b.lead).trim() ? `<p class="lead rv d2">${T(b.lead)}</p>` : ''}
     ${buttons ? `<div class="cta rv d3">\n      ${buttons}\n    </div>` : ''}
+    ${hf ? formHTML(hf, 'rv d3 heroform') : ''}
     ${trust.length ? `<div class="trust rv d3">${trust.map(t => `<span>${T(t)}</span>`).join('')}</div>` : ''}
   </div>
 </section>`;
@@ -300,14 +303,29 @@ ${items.map(q => `      <details class="rv"><summary>${T(q.question)}</summary><
 </section>`;
 };
 
-R.contact = (b, x) => {
-  x.forms += 1;
+function formHTML(b, cls) {
   const opts = arr(b.services).map(str).filter(Boolean);
   const labels = {
     name: b.name_label || 'Your name', phone: b.phone_label || 'Phone or WhatsApp number', email: b.email_label || 'Email (optional)',
     biz: b.business_label || 'Business name', svc: b.service_label || 'What do you need?', msg: b.message_label || 'Tell us about your goal'
   };
   const f = site.form;
+  return `<form class="${cls}" data-lead data-key="${esc(f.web3forms_key)}" data-subject="${esc(tok(b.email_subject || f.email_subject))}" data-from="${esc(site.brand.name)}" data-thanks="${esc(b.thank_you_url || '/thank-you.html')}" data-form-name="${esc(b.form_name || 'contact_form')}" data-sending="${esc(b.sending_text || 'Sending...')}" data-error="${esc(b.error_text || 'Something went wrong. Please call us instead.')}">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <label>${T(labels.name)}<input name="name" required placeholder="${esc(b.name_placeholder || 'John Smith')}"></label>
+      <label>${T(labels.phone)}<input name="phone" type="tel" required placeholder="${esc(b.phone_placeholder || '+1 555 000 0000')}"></label>
+      ${b.ask_email === false ? '' : `<label>${T(labels.email)}<input name="email" type="email" placeholder="you@company.com"></label>`}
+      ${b.ask_business === false ? '' : `<label>${T(labels.biz)}<input name="biz" placeholder="${esc(b.business_placeholder || 'Your company')}"></label>`}
+      ${opts.length ? `<label>${T(labels.svc)}\n        <select name="svc">${opts.map(o => `<option>${T(o)}</option>`).join('')}</select>\n      </label>` : ''}
+      ${b.ask_message === false ? '' : `<label>${T(labels.msg)}<textarea name="msg" placeholder="${esc(b.message_placeholder || '')}"></textarea></label>`}
+      <button class="btn primary" type="submit" style="justify-content:center">${T(b.button_text || 'Send my request →')}</button>
+      <p class="status note" role="status" aria-live="polite"></p>
+      ${str(b.note).trim() ? `<span class="note">${T(b.note)}</span>` : ''}
+    </form>`;
+}
+
+R.contact = (b, x) => {
+  x.forms += 1;
   return `<section${idAttr(b)} class="contact">
   <div class="wrap cgrid">
     <div class="cinfo">
@@ -319,18 +337,7 @@ R.contact = (b, x) => {
         ${btn('ghost', b.whatsapp_text || '💬 WhatsApp', 'whatsapp')}
       </div>`}
     </div>
-    <form class="rv" data-lead data-key="${esc(f.web3forms_key)}" data-subject="${esc(tok(b.email_subject || f.email_subject))}" data-from="${esc(site.brand.name)}" data-thanks="${esc(b.thank_you_url || '/thank-you.html')}" data-form-name="${esc(b.form_name || 'contact_form')}" data-sending="${esc(b.sending_text || 'Sending...')}" data-error="${esc(b.error_text || 'Something went wrong. Please call us instead.')}">
-      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
-      <label>${T(labels.name)}<input name="name" required placeholder="${esc(b.name_placeholder || 'John Smith')}"></label>
-      <label>${T(labels.phone)}<input name="phone" type="tel" required placeholder="${esc(b.phone_placeholder || '+1 555 000 0000')}"></label>
-      ${b.ask_email === false ? '' : `<label>${T(labels.email)}<input name="email" type="email" placeholder="you@company.com"></label>`}
-      ${b.ask_business === false ? '' : `<label>${T(labels.biz)}<input name="biz" placeholder="${esc(b.business_placeholder || 'Your company')}"></label>`}
-      ${opts.length ? `<label>${T(labels.svc)}\n        <select name="svc">${opts.map(o => `<option>${T(o)}</option>`).join('')}</select>\n      </label>` : ''}
-      ${b.ask_message === false ? '' : `<label>${T(labels.msg)}<textarea name="msg" placeholder="${esc(b.message_placeholder || '')}"></textarea></label>`}
-      <button class="btn primary" type="submit" style="justify-content:center">${T(b.button_text || 'Send my request →')}</button>
-      <p class="status note" role="status" aria-live="polite"></p>
-      ${str(b.note).trim() ? `<span class="note">${T(b.note)}</span>` : ''}
-    </form>
+    ${formHTML(b, 'rv')}
   </div>
 </section>`;
 };
@@ -539,7 +546,7 @@ ${o.main}
 
 ${footerHTML(o)}
 
-${callbar()}`;
+${o.nocallbar ? '' : callbar()}`;
   return `<!doctype html>
 <html lang="${esc(site.site.language || 'en')}">
 <head>
@@ -692,7 +699,7 @@ loadMd('content/pages').forEach(p => {
   const noindex = f.noindex === true || layout === 'thank-you';
   out(`${p.slug}/index.html`, layoutHTML({
     path: url, title: `${title} | ${site.brand.name}`, description: str(f.description || title), image: f.image, layout, noindex,
-    main: [intro, sections].filter(Boolean).join('\n\n'), preloader: f.preloader === true, jsonld: faqLD(x), event: f.event, backText: f.back_text
+    main: [intro, sections].filter(Boolean).join('\n\n'), preloader: f.preloader === true, jsonld: faqLD(x), event: f.event, backText: f.back_text, nocallbar: layout === 'landing' && x.forms > 0
   }));
   if (!noindex) urls.push(url);
   pageCount++;

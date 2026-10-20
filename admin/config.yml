@@ -159,6 +159,90 @@ collections:
         name: image
         widget: image
         required: false
+      - label: Center everything (title, text, form)
+        name: center
+        widget: boolean
+        default: false
+        required: false
+      - label: Form inside the hero
+        name: form
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+        - label: Show the form here
+          name: enabled
+          widget: boolean
+          default: false
+          required: false
+        - label: Service choices in the dropdown (empty = no dropdown)
+          name: services
+          widget: list
+          required: false
+          field:
+            label: Choice
+            name: choice
+            widget: string
+        - label: Form button text
+          name: button_text
+          widget: string
+          required: false
+        - label: Small note under the form
+          name: note
+          widget: string
+          required: false
+        - label: Page to open after sending
+          name: thank_you_url
+          widget: string
+          required: false
+          hint: Example /dental-thank-you/ . Default /thank-you.html
+        - label: Form name for tracking
+          name: form_name
+          widget: string
+          required: false
+        - label: Email subject
+          name: email_subject
+          widget: string
+          required: false
+        - label: Ask for email
+          name: ask_email
+          widget: boolean
+          default: true
+          required: false
+        - label: Ask for business name
+          name: ask_business
+          widget: boolean
+          default: true
+          required: false
+        - label: Ask for message
+          name: ask_message
+          widget: boolean
+          default: true
+          required: false
+        - label: Business label
+          name: business_label
+          widget: string
+          required: false
+        - label: Business placeholder
+          name: business_placeholder
+          widget: string
+          required: false
+        - label: Message label
+          name: message_label
+          widget: string
+          required: false
+        - label: Message placeholder
+          name: message_placeholder
+          widget: string
+          required: false
+        - label: Name label
+          name: name_label
+          widget: string
+          required: false
+        - label: Phone label
+          name: phone_label
+          widget: string
+          required: false
       - label: Short hero (smaller banner)
         name: short
         widget: boolean
@@ -1116,6 +1200,90 @@ collections:
           name: image
           widget: image
           required: false
+        - label: Center everything (title, text, form)
+          name: center
+          widget: boolean
+          default: false
+          required: false
+        - label: Form inside the hero
+          name: form
+          widget: object
+          required: false
+          collapsed: true
+          fields:
+          - label: Show the form here
+            name: enabled
+            widget: boolean
+            default: false
+            required: false
+          - label: Service choices in the dropdown (empty = no dropdown)
+            name: services
+            widget: list
+            required: false
+            field:
+              label: Choice
+              name: choice
+              widget: string
+          - label: Form button text
+            name: button_text
+            widget: string
+            required: false
+          - label: Small note under the form
+            name: note
+            widget: string
+            required: false
+          - label: Page to open after sending
+            name: thank_you_url
+            widget: string
+            required: false
+            hint: Example /dental-thank-you/ . Default /thank-you.html
+          - label: Form name for tracking
+            name: form_name
+            widget: string
+            required: false
+          - label: Email subject
+            name: email_subject
+            widget: string
+            required: false
+          - label: Ask for email
+            name: ask_email
+            widget: boolean
+            default: true
+            required: false
+          - label: Ask for business name
+            name: ask_business
+            widget: boolean
+            default: true
+            required: false
+          - label: Ask for message
+            name: ask_message
+            widget: boolean
+            default: true
+            required: false
+          - label: Business label
+            name: business_label
+            widget: string
+            required: false
+          - label: Business placeholder
+            name: business_placeholder
+            widget: string
+            required: false
+          - label: Message label
+            name: message_label
+            widget: string
+            required: false
+          - label: Message placeholder
+            name: message_placeholder
+            widget: string
+            required: false
+          - label: Name label
+            name: name_label
+            widget: string
+            required: false
+          - label: Phone label
+            name: phone_label
+            widget: string
+            required: false
         - label: Short hero (smaller banner)
           name: short
           widget: boolean

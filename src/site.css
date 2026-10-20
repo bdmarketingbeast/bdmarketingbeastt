@@ -40,7 +40,7 @@ header.scrolled{background:rgb(var(--bg-rgb) / .78);backdrop-filter:blur(14px);b
 .btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px -8px rgb(var(--cyan-rgb) / .75)}
 .btn.ghost{border-color:var(--line);background:rgb(var(--ink) / .03);color:var(--text)}
 .btn.ghost:hover{border-color:var(--cyan);background:rgb(var(--cyan-rgb) / .08)}
-.btn.sm{padding:10px 20px;font-size:.88rem}
+.btn.sm{padding:10px 20px;font-size:.88rem;white-space:nowrap}
 .menu{display:none;background:none;border:1px solid var(--line);color:var(--text);width:44px;height:44px;border-radius:12px;font-size:1.3rem;cursor:pointer}
 .landing .links,.landing .menu{display:none!important}
 
@@ -58,6 +58,18 @@ header.scrolled{background:rgb(var(--bg-rgb) / .78);backdrop-filter:blur(14px);b
 .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
 .trust{display:flex;flex-wrap:wrap;gap:26px;margin-top:54px;color:var(--muted);font-size:.9rem;font-weight:600}
 .trust span::before{content:"✓";color:var(--cyan);margin-right:8px;font-weight:800}
+.hero.center .wrap{text-align:center}
+.hero.center h1,.hero.center p.lead{margin-left:auto;margin-right:auto}
+.hero.center .cta,.hero.center .trust{justify-content:center}
+.hero.center{min-height:0;padding:112px 0 64px}
+.hero.center h1{font-size:clamp(2rem,4.6vw,3.7rem);margin:20px auto 16px;max-width:880px;line-height:1.08}
+.hero.center p.lead{font-size:clamp(.98rem,1.4vw,1.1rem);max-width:640px}
+.hero form.heroform{max-width:720px;margin:28px auto 0;text-align:left;padding:26px 28px;gap:14px;grid-template-columns:1fr 1fr;box-shadow:0 30px 80px -30px rgb(var(--blue-rgb) / .5)}
+.hero form.heroform .btn,.hero form.heroform .status,.hero form.heroform .note,.hero form.heroform label:has(textarea){grid-column:1/-1}
+.hero form.heroform .note{text-align:center;margin-top:-4px}
+.hero form.heroform .status{min-height:0}
+.hero form.heroform .status:empty{display:none}
+.hero.center .trust{margin-top:34px}
 .hero.short{min-height:0;padding:170px 0 80px}
 
 /* marquee */
@@ -296,6 +308,21 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--muted);
   .callbar.one{grid-template-columns:1fr}
   .callbar .btn{justify-content:center;padding:13px}
   .landing .nav .btn{display:inline-flex;padding:10px 16px;font-size:.82rem}
+}
+@media (max-width:760px){
+  .hero.center{padding:92px 0 48px}
+  .hero.center h1{font-size:clamp(1.85rem,8.4vw,2.4rem);margin:16px auto 12px}
+  .hero.center p.lead{font-size:.98rem}
+  .hero.center .pill{font-size:.76rem;padding:6px 12px}
+  .landing .nav{height:62px}
+  .landing .logo-img{height:calc(var(--logo-h) * .78)}
+  .landing .btn.sm{padding:9px 14px;font-size:.8rem}
+  .hero.center{padding-top:82px}
+  .hero form.heroform{grid-template-columns:1fr;padding:18px 16px;margin-top:20px;border-radius:18px;gap:10px}
+  .hero form.heroform input,.hero form.heroform select{padding:12px 14px}
+  .hero form.heroform label{font-size:.8rem}
+  .landing:has(.callbar){padding-bottom:84px}
+  .hero.center .trust{gap:10px 18px;margin-top:24px;font-size:.84rem;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
