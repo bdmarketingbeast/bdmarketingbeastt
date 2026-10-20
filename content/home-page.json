@@ -1,0 +1,241 @@
+{
+  "seo_title": "Bd Marketing Beast | Facebook Ads, Google Ads & Website Development",
+  "seo_description": "Bd Marketing Beast is a performance marketing agency. Facebook Ads, Google Ads, website development, SEO and funnels for businesses worldwide. Call 01776272503.",
+  "sections": [
+    {
+      "type": "hero",
+      "anchor": "top",
+      "badge": "Taking new clients worldwide",
+      "title": "Ads and Marketing that *turn clicks into customers.*",
+      "lead": "Bd Marketing Beast runs Facebook Ads and Google Ads, and builds fast, custom websites, for businesses that want real leads and real sales, not just traffic.",
+      "button_text": "Get a free strategy call →",
+      "button_link": "/#contact",
+      "button2_text": "01776272503",
+      "button2_link": "call",
+      "trust": [
+        "Serving clients worldwide",
+        "Custom-coded websites",
+        "Built around leads, not likes"
+      ],
+      "animation": true
+    },
+    {
+      "type": "marquee",
+      "words": [
+        "Facebook Ads",
+        "Google Ads",
+        "Website Development",
+        "SEO",
+        "Sales Funnels",
+        "CRM Setup",
+        "Social Media"
+      ]
+    },
+    {
+      "type": "cards",
+      "anchor": "services",
+      "eyebrow": "What we do",
+      "title": "Everything you need to *grow online*",
+      "subtitle": "One team for traffic, website and follow-up, so every part works together instead of against each other.",
+      "columns": 3,
+      "background": "normal",
+      "cards": [
+        {
+          "title": "Facebook & Instagram Ads",
+          "text": "Scroll-stopping creatives and tight targeting that bring in leads and orders at a cost that makes sense.",
+          "bullets": [
+            "Campaign setup and scaling",
+            "Creative and copy testing",
+            "Pixel and conversion tracking"
+          ],
+          "icon": "megaphone"
+        },
+        {
+          "title": "Google Ads",
+          "text": "Show up the moment people search for what you sell, and pay only for the clicks that matter.",
+          "bullets": [
+            "Search and Performance Max",
+            "Keyword and negative-keyword control",
+            "Call and form tracking"
+          ],
+          "icon": "search"
+        },
+        {
+          "title": "Website Development",
+          "text": "Fast, custom-coded sites designed to convert, with clear calls to action and a layout built for phones first.",
+          "bullets": [
+            "Conversion-focused design",
+            "Speed and mobile optimized",
+            "Landing pages and full sites"
+          ],
+          "icon": "monitor"
+        },
+        {
+          "title": "SEO",
+          "text": "Climb the search results and get steady, free traffic that keeps working month after month.",
+          "bullets": [
+            "On-page and technical SEO",
+            "Content and local SEO",
+            "Clear reporting"
+          ],
+          "icon": "trend"
+        },
+        {
+          "title": "Funnels & CRM Setup",
+          "text": "Capture every lead, follow up automatically and see exactly where your sales come from.",
+          "bullets": [
+            "Lead capture funnels",
+            "Automated follow-ups",
+            "Pipeline and reporting"
+          ],
+          "icon": "funnel"
+        },
+        {
+          "title": "Social Media Management",
+          "text": "Consistent, on-brand content that builds trust and keeps your audience engaged between ad campaigns.",
+          "bullets": [
+            "Content planning and posting",
+            "Community engagement",
+            "Monthly performance review"
+          ],
+          "icon": "user"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        {
+          "count": 6,
+          "suffix": "",
+          "text": "",
+          "label": "Core services"
+        },
+        {
+          "count": 24,
+          "suffix": "h",
+          "text": "",
+          "label": "Reply time"
+        },
+        {
+          "count": 100,
+          "suffix": "%",
+          "text": "",
+          "label": "Custom-coded sites"
+        },
+        {
+          "text": "Global",
+          "label": "Clients worldwide"
+        }
+      ]
+    },
+    {
+      "type": "steps",
+      "anchor": "process",
+      "eyebrow": "How it works",
+      "title": "A simple process, *built for results*",
+      "steps": [
+        {
+          "title": "Discover",
+          "text": "A free call to understand your business, your customers and your goals."
+        },
+        {
+          "title": "Strategy",
+          "text": "A clear plan for ads, website and tracking, with no jargon."
+        },
+        {
+          "title": "Launch",
+          "text": "We build, test and go live fast, with tracking on from day one."
+        },
+        {
+          "title": "Optimize",
+          "text": "We watch the numbers, cut what fails and scale what works."
+        }
+      ],
+      "background": "normal"
+    },
+    {
+      "type": "features",
+      "anchor": "why",
+      "eyebrow": "Why {brand}",
+      "title": "Marketing that is *measured*, not guessed",
+      "background": "alt",
+      "side": "chart",
+      "items": [
+        {
+          "title": "Focused on leads and sales",
+          "text": "We judge every campaign by the customers it brings, not vanity numbers."
+        },
+        {
+          "title": "Ads and website under one roof",
+          "text": "Your traffic lands on a page built to convert it."
+        },
+        {
+          "title": "Honest, simple reporting",
+          "text": "You always know what is working and where the budget goes."
+        }
+      ],
+      "chart_title": "Sample growth view (illustration)",
+      "chart_values": [
+        22,
+        34,
+        30,
+        52,
+        64,
+        78,
+        92
+      ],
+      "chart_note": "Illustration only. Replace with a real client result and chart."
+    },
+    {
+      "type": "faq",
+      "anchor": "faq",
+      "eyebrow": "Questions",
+      "title": "Good to know",
+      "items": [
+        {
+          "question": "Do you work with clients outside Bangladesh?",
+          "answer": "Yes. We work with businesses worldwide and run calls and reporting online."
+        },
+        {
+          "question": "Which service should I start with?",
+          "answer": "It depends on your goal. Most businesses start with ads plus a conversion-focused website. Book a free call and we will recommend the best first step."
+        },
+        {
+          "question": "How fast can my website be ready?",
+          "answer": "Timelines depend on the size of the project. We will give you a clear schedule after the first call."
+        },
+        {
+          "question": "What budget do I need for ads?",
+          "answer": "We will suggest a starting budget based on your industry, location and goals during the strategy call."
+        },
+        {
+          "question": "How will I know it is working?",
+          "answer": "We set up tracking for calls, forms and sales, and share clear reports so you can see the results."
+        }
+      ],
+      "background": "normal"
+    },
+    {
+      "type": "contact",
+      "anchor": "contact",
+      "eyebrow": "Let's talk",
+      "title": "Ready to grow? *Get your free strategy call.*",
+      "text": "Call or message us. Serving businesses worldwide.",
+      "services": [
+        "Facebook Ads",
+        "Google Ads",
+        "Website Development",
+        "SEO",
+        "Sales Funnels / CRM",
+        "Social Media",
+        "Not sure yet"
+      ],
+      "message_placeholder": "e.g. I want more leads from Facebook",
+      "phone_placeholder": "+880 1XXX XXXXXX",
+      "button_text": "Send my request →",
+      "note": "We reply within 24 hours. Your details stay private.",
+      "thank_you_url": "/thank-you.html"
+    }
+  ]
+}

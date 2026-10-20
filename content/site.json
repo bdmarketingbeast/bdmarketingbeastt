@@ -1,0 +1,96 @@
+{
+  "brand": {
+    "name": "Bd Marketing Beast",
+    "logo": "/uploads/logo.png",
+    "logo_height": 50,
+    "favicon": "/uploads/favicon.png"
+  },
+  "colors": {
+    "blue": "#1e6bff",
+    "cyan": "#38bdf8",
+    "background": "#05060a",
+    "text": "",
+    "mode": "auto"
+  },
+  "fonts": {
+    "heading": "Syne",
+    "body": "Manrope"
+  },
+  "header": {
+    "button_text": "Call {phone}",
+    "button_link": "call",
+    "show_mobile_bar": true,
+    "mobile_call_text": "📞 Call",
+    "mobile_whatsapp_text": "💬 WhatsApp"
+  },
+  "nav": [
+    {
+      "label": "Services",
+      "url": "/#services"
+    },
+    {
+      "label": "Process",
+      "url": "/#process"
+    },
+    {
+      "label": "Why Us",
+      "url": "/#why"
+    },
+    {
+      "label": "FAQ",
+      "url": "/#faq"
+    },
+    {
+      "label": "Blog",
+      "url": "/blog/"
+    },
+    {
+      "label": "Contact",
+      "url": "/#contact"
+    }
+  ],
+  "footer": {
+    "text": "© {year} {brand}. All rights reserved.",
+    "show_phone": true,
+    "links": [],
+    "social": []
+  },
+  "contact": {
+    "phone_display": "01776272503",
+    "phone_intl": "8801776272503",
+    "whatsapp": "",
+    "email": "",
+    "address": ""
+  },
+  "tracking": {
+    "gtm_id": "GTM-P9JS8JJ4",
+    "head_code": "",
+    "body_code": ""
+  },
+  "form": {
+    "web3forms_key": "542f5e86-bf1f-4525-8502-2c82b6a9c4fb",
+    "email_subject": "New lead from the website"
+  },
+  "site": {
+    "url": "",
+    "language": "en",
+    "show_preloader": true,
+    "preloader_text": "Loading the beast",
+    "area_served": "Worldwide",
+    "business_type": "ProfessionalService"
+  },
+  "blog": {
+    "seo_title": "Blog",
+    "seo_description": "Marketing tips on Facebook Ads, Google Ads, websites and SEO.",
+    "eyebrow": "The Beast Blog",
+    "title": "Marketing tips that *actually grow* your business",
+    "intro": "Practical advice on Facebook Ads, Google Ads, websites and SEO, written for business owners.",
+    "empty_text": "Our first articles are on the way. Check back soon.",
+    "cta_title": "Want results like these *for your business?*",
+    "cta_text": "Book a free strategy call and we will show you where your next customers can come from.",
+    "cta_button": "Get a free strategy call →",
+    "cta_link": "/#contact",
+    "cta_button2": "📞 {phone}",
+    "cta_link2": "call"
+  }
+}

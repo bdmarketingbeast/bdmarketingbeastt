@@ -1,0 +1,28 @@
+{
+  "seo_title": "Thank You | Bd Marketing Beast",
+  "event": "lead_thank_you_view",
+  "back_text": "← Back to homepage",
+  "sections": [
+    {
+      "type": "thankyou",
+      "title": "Thank you! *We got your request.*",
+      "text": "Our team will review your details and contact you within 24 hours.",
+      "steps": [
+        {
+          "text": "We review your business and goals."
+        },
+        {
+          "text": "We call or message you on the number you gave us."
+        },
+        {
+          "text": "You get a clear plan for ads and your website."
+        }
+      ],
+      "extra_text": "In a hurry? Reach us right now:",
+      "button_text": "📞 Call {phone}",
+      "button_link": "call",
+      "button2_text": "💬 WhatsApp",
+      "button2_link": "whatsapp"
+    }
+  ]
+}
