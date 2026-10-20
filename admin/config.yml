@@ -44,6 +44,7 @@ collections:
     name: draft
     widget: boolean
     default: false
+    required: false
   - label: Post content
     name: body
     widget: markdown
@@ -70,16 +71,19 @@ collections:
     - standard
     - landing
     - thank-you
+    required: false
     default: standard
     hint: standard = normal page with menu. landing = no menu, built for ads. thank-you = minimal page for after a form, hidden from Google.
   - label: Show the title at the top
     name: show_title
     widget: boolean
     default: true
+    required: false
   - label: Hide from Google (noindex)
     name: noindex
     widget: boolean
     default: false
+    required: false
   - label: Tag Manager event for thank-you pages
     name: event
     widget: string
@@ -93,6 +97,7 @@ collections:
     name: draft
     widget: boolean
     default: false
+    required: false
   - label: Text at the top
     name: body
     widget: markdown
@@ -158,10 +163,12 @@ collections:
         name: short
         widget: boolean
         default: false
+        required: false
       - label: Moving network animation
         name: animation
         widget: boolean
         default: true
+        required: false
     - label: Scrolling words strip
       name: marquee
       widget: object
@@ -191,6 +198,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -213,6 +221,7 @@ collections:
         - '2'
         - '3'
         - '4'
+        required: false
         default: '3'
       - label: Cards
         name: cards
@@ -251,6 +260,7 @@ collections:
           - shield
           - clock
           - globe
+          required: false
           default: star
         - label: Bullet points
           name: bullets
@@ -313,6 +323,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -357,6 +368,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -392,6 +404,7 @@ collections:
         - none
         - chart
         - image
+        required: false
         default: none
       - label: Photo (if right side is image)
         name: image
@@ -430,6 +443,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -482,10 +496,12 @@ collections:
         name: show_phone
         widget: boolean
         default: true
+        required: false
       - label: Show Call / WhatsApp buttons
         name: show_buttons
         widget: boolean
         default: true
+        required: false
       - label: Call button text
         name: call_text
         widget: string
@@ -528,14 +544,17 @@ collections:
         name: ask_email
         widget: boolean
         default: true
+        required: false
       - label: Ask for business name
         name: ask_business
         widget: boolean
         default: true
+        required: false
       - label: Ask for message
         name: ask_message
         widget: boolean
         default: true
+        required: false
       - label: Name label
         name: name_label
         widget: string
@@ -606,6 +625,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -630,11 +650,13 @@ collections:
         options:
         - left
         - center
+        required: false
         default: left
       - label: Wide
         name: wide
         widget: boolean
         default: false
+        required: false
     - label: Photo + text
       name: image_text
       widget: object
@@ -651,6 +673,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -680,6 +703,7 @@ collections:
         options:
         - left
         - right
+        required: false
         default: left
       - label: Text
         name: body
@@ -710,6 +734,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -732,6 +757,7 @@ collections:
         - '2'
         - '3'
         - '4'
+        required: false
         default: '3'
       - label: Photos
         name: images
@@ -786,6 +812,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -837,6 +864,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -892,6 +920,7 @@ collections:
           name: popular
           widget: boolean
           default: false
+          required: false
         - label: Badge text
           name: badge
           widget: string
@@ -913,6 +942,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -948,6 +978,7 @@ collections:
         options:
         - normal
         - alt
+        required: false
         default: normal
         hint: alt = slightly different shade to separate sections
       - label: Small label above the title
@@ -1089,10 +1120,12 @@ collections:
           name: short
           widget: boolean
           default: false
+          required: false
         - label: Moving network animation
           name: animation
           widget: boolean
           default: true
+          required: false
       - label: Scrolling words strip
         name: marquee
         widget: object
@@ -1122,6 +1155,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1144,6 +1178,7 @@ collections:
           - '2'
           - '3'
           - '4'
+          required: false
           default: '3'
         - label: Cards
           name: cards
@@ -1182,6 +1217,7 @@ collections:
             - shield
             - clock
             - globe
+            required: false
             default: star
           - label: Bullet points
             name: bullets
@@ -1244,6 +1280,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1288,6 +1325,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1323,6 +1361,7 @@ collections:
           - none
           - chart
           - image
+          required: false
           default: none
         - label: Photo (if right side is image)
           name: image
@@ -1361,6 +1400,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1413,10 +1453,12 @@ collections:
           name: show_phone
           widget: boolean
           default: true
+          required: false
         - label: Show Call / WhatsApp buttons
           name: show_buttons
           widget: boolean
           default: true
+          required: false
         - label: Call button text
           name: call_text
           widget: string
@@ -1459,14 +1501,17 @@ collections:
           name: ask_email
           widget: boolean
           default: true
+          required: false
         - label: Ask for business name
           name: ask_business
           widget: boolean
           default: true
+          required: false
         - label: Ask for message
           name: ask_message
           widget: boolean
           default: true
+          required: false
         - label: Name label
           name: name_label
           widget: string
@@ -1537,6 +1582,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1561,11 +1607,13 @@ collections:
           options:
           - left
           - center
+          required: false
           default: left
         - label: Wide
           name: wide
           widget: boolean
           default: false
+          required: false
       - label: Photo + text
         name: image_text
         widget: object
@@ -1582,6 +1630,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1611,6 +1660,7 @@ collections:
           options:
           - left
           - right
+          required: false
           default: left
         - label: Text
           name: body
@@ -1641,6 +1691,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1663,6 +1714,7 @@ collections:
           - '2'
           - '3'
           - '4'
+          required: false
           default: '3'
         - label: Photos
           name: images
@@ -1717,6 +1769,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1768,6 +1821,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1823,6 +1877,7 @@ collections:
             name: popular
             widget: boolean
             default: false
+            required: false
           - label: Badge text
             name: badge
             widget: string
@@ -1844,6 +1899,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -1879,6 +1935,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -2015,6 +2072,7 @@ collections:
           options:
           - normal
           - alt
+          required: false
           default: normal
           hint: alt = slightly different shade to separate sections
         - label: Small label above the title
@@ -2039,11 +2097,13 @@ collections:
           options:
           - left
           - center
+          required: false
           default: left
         - label: Wide
           name: wide
           widget: boolean
           default: false
+          required: false
       typeKey: type
       summary: '{{fields.title}}'
   - label: Brand, colors, fonts, menu, tracking
@@ -2101,6 +2161,7 @@ collections:
         - auto
         - dark
         - light
+        required: false
         default: auto
         hint: auto decides from the background color
     - label: Fonts
@@ -2122,6 +2183,7 @@ collections:
         - Raleway
         - DM Sans
         - Outfit
+        required: false
       - label: Body font
         name: body
         widget: select
@@ -2134,6 +2196,7 @@ collections:
         - Montserrat
         - Raleway
         - Lora
+        required: false
     - label: Header and mobile bar
       name: header
       widget: object
@@ -2150,6 +2213,7 @@ collections:
         name: show_mobile_bar
         widget: boolean
         default: true
+        required: false
       - label: 'Phone bar: call text'
         name: mobile_call_text
         widget: string
@@ -2183,6 +2247,7 @@ collections:
         name: show_phone
         widget: boolean
         default: true
+        required: false
       - label: Footer links
         name: links
         widget: list
@@ -2273,6 +2338,7 @@ collections:
         name: show_preloader
         widget: boolean
         default: true
+        required: false
       - label: Loading screen text
         name: preloader_text
         widget: string
