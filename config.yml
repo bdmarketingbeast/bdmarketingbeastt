@@ -1,0 +1,2379 @@
+backend:
+  name: github
+  repo: bdmarketingbeast/bdmarketingbeastt
+  branch: main
+media_folder: uploads
+public_folder: /uploads
+locale: en
+site_url: /
+collections:
+- name: blog
+  label: Blog posts
+  label_singular: Blog post
+  folder: content/blog
+  create: true
+  extension: md
+  slug: '{{slug}}'
+  summary: '{{title}}'
+  sortable_fields:
+  - date
+  - title
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Publish date
+    name: date
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: DD MMM YYYY
+    time_format: false
+  - label: Category (small label on the card)
+    name: category
+    widget: string
+    default: Marketing
+  - label: Short summary (shown on the blog page card)
+    name: summary
+    widget: text
+  - label: Card image
+    name: image
+    widget: image
+    required: false
+    hint: Wide photo works best (16:9).
+  - label: Draft (tick to hide this post from the website)
+    name: draft
+    widget: boolean
+    default: false
+  - label: Post content
+    name: body
+    widget: markdown
+- name: pages
+  label: Extra pages (About, landing pages, thank-you pages)
+  label_singular: Page
+  folder: content/pages
+  create: true
+  extension: md
+  slug: '{{slug}}'
+  summary: '{{title}}'
+  fields:
+  - label: Page title
+    name: title
+    widget: string
+  - label: Description for Google (one sentence)
+    name: description
+    widget: text
+    required: false
+  - label: Page type
+    name: layout
+    widget: select
+    options:
+    - standard
+    - landing
+    - thank-you
+    required: false
+    default: standard
+    hint: standard = normal page with menu. landing = no menu, built for ads. thank-you = minimal page for after a form, hidden from Google.
+  - label: Show the title at the top
+    name: show_title
+    widget: boolean
+    default: true
+  - label: Hide from Google (noindex)
+    name: noindex
+    widget: boolean
+    default: false
+  - label: Tag Manager event for thank-you pages
+    name: event
+    widget: string
+    required: false
+    hint: Default lead_thank_you_view
+  - label: Share image
+    name: image
+    widget: image
+    required: false
+  - label: Draft (tick to hide this page from the website)
+    name: draft
+    widget: boolean
+    default: false
+  - label: Text at the top
+    name: body
+    widget: markdown
+    required: false
+  - label: Page sections
+    hint: Click Add to put in a new section. Use the arrows or drag to reorder, and the X to remove.
+    name: sections
+    widget: list
+    required: false
+    types:
+    - label: Hero (top banner)
+      name: hero
+      widget: object
+      summary: 'Hero: {{title}}'
+      fields:
+      - label: Anchor
+        name: anchor
+        widget: string
+        required: false
+      - label: Small badge text
+        name: badge
+        widget: string
+        required: false
+      - label: Main headline
+        name: title
+        widget: string
+        hint: Put *stars* around words to make them blue.
+      - label: Text under headline
+        name: lead
+        widget: text
+        required: false
+      - label: Button 1 text
+        name: button_text
+        widget: string
+        required: false
+      - label: Button 1 link
+        name: button_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Button 2 text (use {phone} for your number)
+        name: button2_text
+        widget: string
+        required: false
+      - label: Button 2 link
+        name: button2_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Trust points (small ticks under buttons)
+        name: trust
+        widget: list
+        required: false
+        field:
+          label: Point
+          name: point
+          widget: string
+      - label: Background photo
+        name: image
+        widget: image
+        required: false
+      - label: Short hero (smaller banner)
+        name: short
+        widget: boolean
+        default: false
+      - label: Moving network animation
+        name: animation
+        widget: boolean
+        default: true
+    - label: Scrolling words strip
+      name: marquee
+      widget: object
+      summary: Strip
+      fields:
+      - label: Words
+        name: words
+        widget: list
+        required: false
+        field:
+          label: Word
+          name: word
+          widget: string
+    - label: Cards (services, features, products)
+      name: cards
+      widget: object
+      summary: 'Cards: {{title}}'
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Cards per row
+        name: columns
+        widget: select
+        options:
+        - '2'
+        - '3'
+        - '4'
+        required: false
+        default: '3'
+      - label: Cards
+        name: cards
+        widget: list
+        required: false
+        fields:
+        - label: Card title
+          name: title
+          widget: string
+        - label: Text
+          name: text
+          widget: text
+          required: false
+        - label: Picture (optional, replaces the icon)
+          name: image
+          widget: image
+          required: false
+        - label: Icon
+          name: icon
+          widget: select
+          options:
+          - none
+          - megaphone
+          - search
+          - monitor
+          - trend
+          - funnel
+          - user
+          - mail
+          - star
+          - phone
+          - chart
+          - heart
+          - home
+          - tools
+          - shield
+          - clock
+          - globe
+          required: false
+          default: star
+        - label: Bullet points
+          name: bullets
+          widget: list
+          required: false
+          field:
+            label: Bullet
+            name: bullet
+            widget: string
+        - label: Link text
+          name: link_text
+          widget: string
+          required: false
+        - label: Link address
+          name: link_url
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+        summary: '{{fields.title}}'
+    - label: Numbers strip
+      name: stats
+      widget: object
+      summary: Numbers
+      fields:
+      - label: Numbers
+        name: items
+        widget: list
+        required: false
+        fields:
+        - label: Counting number (leave empty to show words)
+          name: count
+          widget: number
+          value_type: int
+          required: false
+        - label: After the number (like % or h)
+          name: suffix
+          widget: string
+          required: false
+        - label: Words instead of a number
+          name: text
+          widget: string
+          required: false
+        - label: Label under it
+          name: label
+          widget: string
+        summary: '{{fields.label}}'
+    - label: Steps (how it works)
+      name: steps
+      widget: object
+      summary: 'Steps: {{title}}'
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Steps
+        name: steps
+        widget: list
+        required: false
+        fields:
+        - label: Step name
+          name: title
+          widget: string
+        - label: Description
+          name: text
+          widget: text
+          required: false
+        summary: '{{fields.title}}'
+    - label: Reasons list + chart or photo
+      name: features
+      widget: object
+      summary: 'Why: {{title}}'
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Reasons
+        name: items
+        widget: list
+        required: false
+        fields:
+        - label: Title
+          name: title
+          widget: string
+        - label: Text
+          name: text
+          widget: text
+          required: false
+        summary: '{{fields.title}}'
+      - label: Right side shows
+        name: side
+        widget: select
+        options:
+        - none
+        - chart
+        - image
+        required: false
+        default: none
+      - label: Photo (if right side is image)
+        name: image
+        widget: image
+        required: false
+      - label: Chart title
+        name: chart_title
+        widget: string
+        required: false
+      - label: Chart bar heights (numbers)
+        name: chart_values
+        widget: list
+        required: false
+        field:
+          label: Number
+          name: n
+          widget: number
+          value_type: int
+      - label: Chart small note
+        name: chart_note
+        widget: string
+        required: false
+    - label: Questions and answers (FAQ)
+      name: faq
+      widget: object
+      summary: FAQ
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Questions
+        name: items
+        widget: list
+        required: false
+        fields:
+        - label: Question
+          name: question
+          widget: string
+        - label: Answer
+          name: answer
+          widget: text
+        summary: '{{fields.question}}'
+    - label: Contact form
+      name: contact
+      widget: object
+      summary: Contact form
+      fields:
+      - label: Anchor
+        name: anchor
+        widget: string
+        required: false
+      - label: Small label
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+      - label: Text
+        name: text
+        widget: text
+        required: false
+      - label: Show big phone number
+        name: show_phone
+        widget: boolean
+        default: true
+      - label: Show Call / WhatsApp buttons
+        name: show_buttons
+        widget: boolean
+        default: true
+      - label: Call button text
+        name: call_text
+        widget: string
+        required: false
+      - label: WhatsApp button text
+        name: whatsapp_text
+        widget: string
+        required: false
+      - label: Service choices in the dropdown (empty = no dropdown)
+        name: services
+        widget: list
+        required: false
+        field:
+          label: Choice
+          name: choice
+          widget: string
+      - label: Form button text
+        name: button_text
+        widget: string
+        required: false
+      - label: Small note under the form
+        name: note
+        widget: string
+        required: false
+      - label: Page to open after sending
+        name: thank_you_url
+        widget: string
+        required: false
+        hint: Default /thank-you.html . Use another thank-you page address if you made one.
+      - label: Form name for tracking
+        name: form_name
+        widget: string
+        required: false
+        hint: Sent to Google Tag Manager, e.g. contact_form or landing_form
+      - label: Email subject
+        name: email_subject
+        widget: string
+        required: false
+      - label: Ask for email
+        name: ask_email
+        widget: boolean
+        default: true
+      - label: Ask for business name
+        name: ask_business
+        widget: boolean
+        default: true
+      - label: Ask for message
+        name: ask_message
+        widget: boolean
+        default: true
+      - label: Name label
+        name: name_label
+        widget: string
+        required: false
+      - label: Phone label
+        name: phone_label
+        widget: string
+        required: false
+      - label: Message placeholder
+        name: message_placeholder
+        widget: string
+        required: false
+      - label: Message while sending
+        name: sending_text
+        widget: string
+        required: false
+      - label: Error message
+        name: error_text
+        widget: string
+        required: false
+    - label: Call-to-action banner
+      name: cta
+      widget: object
+      summary: 'Banner: {{title}}'
+      fields:
+      - label: Anchor
+        name: anchor
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Text
+        name: text
+        widget: text
+        required: false
+      - label: Button 1 text
+        name: button_text
+        widget: string
+        required: false
+      - label: Button 1 link
+        name: button_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Button 2 text
+        name: button2_text
+        widget: string
+        required: false
+      - label: Button 2 link
+        name: button2_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+    - label: Text block
+      name: text
+      widget: object
+      summary: 'Text: {{title}}'
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Text
+        name: body
+        widget: markdown
+      - label: Alignment
+        name: align
+        widget: select
+        options:
+        - left
+        - center
+        required: false
+        default: left
+      - label: Wide
+        name: wide
+        widget: boolean
+        default: false
+    - label: Photo + text
+      name: image_text
+      widget: object
+      summary: 'Photo: {{title}}'
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Photo
+        name: image
+        widget: image
+        required: false
+      - label: Photo description
+        name: image_alt
+        widget: string
+        required: false
+      - label: Photo side
+        name: image_side
+        widget: select
+        options:
+        - left
+        - right
+        required: false
+        default: left
+      - label: Text
+        name: body
+        widget: markdown
+        required: false
+      - label: Button text
+        name: button_text
+        widget: string
+        required: false
+      - label: Button link
+        name: button_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+    - label: Photo gallery
+      name: gallery
+      widget: object
+      summary: Gallery
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Photos per row
+        name: columns
+        widget: select
+        options:
+        - '2'
+        - '3'
+        - '4'
+        required: false
+        default: '3'
+      - label: Photos
+        name: images
+        widget: list
+        required: false
+        fields:
+        - label: Photo
+          name: image
+          widget: image
+          required: false
+        - label: Caption
+          name: caption
+          widget: string
+          required: false
+        summary: '{{fields.caption}}'
+    - label: Logo strip (clients)
+      name: logos
+      widget: object
+      summary: Logos
+      fields:
+      - label: Small title
+        name: title
+        widget: string
+        required: false
+      - label: Logos
+        name: images
+        widget: list
+        required: false
+        fields:
+        - label: Logo
+          name: image
+          widget: image
+          required: false
+        - label: Name
+          name: name
+          widget: string
+          required: false
+        summary: '{{fields.name}}'
+    - label: Testimonials
+      name: testimonials
+      widget: object
+      summary: Testimonials
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: People
+        name: items
+        widget: list
+        required: false
+        fields:
+        - label: What they said
+          name: quote
+          widget: text
+        - label: Name
+          name: name
+          widget: string
+        - label: Role / company
+          name: role
+          widget: string
+          required: false
+        - label: Photo
+          name: photo
+          widget: image
+          required: false
+        summary: '{{fields.name}}'
+    - label: Pricing plans
+      name: pricing
+      widget: object
+      summary: Pricing
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Plans
+        name: plans
+        widget: list
+        required: false
+        fields:
+        - label: Plan name
+          name: name
+          widget: string
+        - label: Price
+          name: price
+          widget: string
+        - label: After price (like /month)
+          name: period
+          widget: string
+          required: false
+        - label: Short text
+          name: text
+          widget: text
+          required: false
+        - label: What is included
+          name: features
+          widget: list
+          required: false
+          field:
+            label: Item
+            name: item
+            widget: string
+        - label: Button text
+          name: button_text
+          widget: string
+          required: false
+        - label: Button link
+          name: button_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+        - label: Highlight as most popular
+          name: popular
+          widget: boolean
+          default: false
+        - label: Badge text
+          name: badge
+          widget: string
+          required: false
+        summary: '{{fields.name}}'
+    - label: Video (YouTube or Vimeo)
+      name: video
+      widget: object
+      summary: Video
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Video link
+        name: url
+        widget: string
+        hint: Paste the YouTube or Vimeo address.
+    - label: Custom embed (calendar, map, code)
+      name: embed
+      widget: object
+      summary: Embed
+      fields:
+      - label: Section anchor
+        name: anchor
+        widget: string
+        required: false
+        hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+      - label: Background
+        name: background
+        widget: select
+        options:
+        - normal
+        - alt
+        required: false
+        default: normal
+        hint: alt = slightly different shade to separate sections
+      - label: Small label above the title
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: false
+        hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+      - label: Text under the title
+        name: subtitle
+        widget: text
+        required: false
+      - label: Embed code (HTML)
+        name: code
+        widget: text
+    - label: Thank-you message
+      name: thankyou
+      widget: object
+      summary: Thank you
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Text
+        name: text
+        widget: text
+        required: false
+      - label: Next steps
+        name: steps
+        widget: list
+        required: false
+        fields:
+        - label: Step
+          name: text
+          widget: string
+        summary: '{{fields.text}}'
+      - label: Extra line above buttons
+        name: extra_text
+        widget: string
+        required: false
+      - label: Button 1 text
+        name: button_text
+        widget: string
+        required: false
+      - label: Button 1 link
+        name: button_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Button 2 text
+        name: button2_text
+        widget: string
+        required: false
+      - label: Button 2 link
+        name: button2_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+    typeKey: type
+    summary: '{{fields.title}}'
+- name: site
+  label: Site settings
+  files:
+  - label: Home page
+    name: home
+    file: content/home-page.json
+    fields:
+    - label: Google title
+      name: seo_title
+      widget: string
+    - label: Google description
+      name: seo_description
+      widget: text
+    - label: Share image
+      name: seo_image
+      widget: image
+      required: false
+    - label: Page sections
+      hint: Click Add to put in a new section. Use the arrows or drag to reorder, and the X to remove.
+      name: sections
+      widget: list
+      required: false
+      types:
+      - label: Hero (top banner)
+        name: hero
+        widget: object
+        summary: 'Hero: {{title}}'
+        fields:
+        - label: Anchor
+          name: anchor
+          widget: string
+          required: false
+        - label: Small badge text
+          name: badge
+          widget: string
+          required: false
+        - label: Main headline
+          name: title
+          widget: string
+          hint: Put *stars* around words to make them blue.
+        - label: Text under headline
+          name: lead
+          widget: text
+          required: false
+        - label: Button 1 text
+          name: button_text
+          widget: string
+          required: false
+        - label: Button 1 link
+          name: button_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+        - label: Button 2 text (use {phone} for your number)
+          name: button2_text
+          widget: string
+          required: false
+        - label: Button 2 link
+          name: button2_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+        - label: Trust points (small ticks under buttons)
+          name: trust
+          widget: list
+          required: false
+          field:
+            label: Point
+            name: point
+            widget: string
+        - label: Background photo
+          name: image
+          widget: image
+          required: false
+        - label: Short hero (smaller banner)
+          name: short
+          widget: boolean
+          default: false
+        - label: Moving network animation
+          name: animation
+          widget: boolean
+          default: true
+      - label: Scrolling words strip
+        name: marquee
+        widget: object
+        summary: Strip
+        fields:
+        - label: Words
+          name: words
+          widget: list
+          required: false
+          field:
+            label: Word
+            name: word
+            widget: string
+      - label: Cards (services, features, products)
+        name: cards
+        widget: object
+        summary: 'Cards: {{title}}'
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Cards per row
+          name: columns
+          widget: select
+          options:
+          - '2'
+          - '3'
+          - '4'
+          required: false
+          default: '3'
+        - label: Cards
+          name: cards
+          widget: list
+          required: false
+          fields:
+          - label: Card title
+            name: title
+            widget: string
+          - label: Text
+            name: text
+            widget: text
+            required: false
+          - label: Picture (optional, replaces the icon)
+            name: image
+            widget: image
+            required: false
+          - label: Icon
+            name: icon
+            widget: select
+            options:
+            - none
+            - megaphone
+            - search
+            - monitor
+            - trend
+            - funnel
+            - user
+            - mail
+            - star
+            - phone
+            - chart
+            - heart
+            - home
+            - tools
+            - shield
+            - clock
+            - globe
+            required: false
+            default: star
+          - label: Bullet points
+            name: bullets
+            widget: list
+            required: false
+            field:
+              label: Bullet
+              name: bullet
+              widget: string
+          - label: Link text
+            name: link_text
+            widget: string
+            required: false
+          - label: Link address
+            name: link_url
+            widget: string
+            required: false
+            hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+          summary: '{{fields.title}}'
+      - label: Numbers strip
+        name: stats
+        widget: object
+        summary: Numbers
+        fields:
+        - label: Numbers
+          name: items
+          widget: list
+          required: false
+          fields:
+          - label: Counting number (leave empty to show words)
+            name: count
+            widget: number
+            value_type: int
+            required: false
+          - label: After the number (like % or h)
+            name: suffix
+            widget: string
+            required: false
+          - label: Words instead of a number
+            name: text
+            widget: string
+            required: false
+          - label: Label under it
+            name: label
+            widget: string
+          summary: '{{fields.label}}'
+      - label: Steps (how it works)
+        name: steps
+        widget: object
+        summary: 'Steps: {{title}}'
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Steps
+          name: steps
+          widget: list
+          required: false
+          fields:
+          - label: Step name
+            name: title
+            widget: string
+          - label: Description
+            name: text
+            widget: text
+            required: false
+          summary: '{{fields.title}}'
+      - label: Reasons list + chart or photo
+        name: features
+        widget: object
+        summary: 'Why: {{title}}'
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Reasons
+          name: items
+          widget: list
+          required: false
+          fields:
+          - label: Title
+            name: title
+            widget: string
+          - label: Text
+            name: text
+            widget: text
+            required: false
+          summary: '{{fields.title}}'
+        - label: Right side shows
+          name: side
+          widget: select
+          options:
+          - none
+          - chart
+          - image
+          required: false
+          default: none
+        - label: Photo (if right side is image)
+          name: image
+          widget: image
+          required: false
+        - label: Chart title
+          name: chart_title
+          widget: string
+          required: false
+        - label: Chart bar heights (numbers)
+          name: chart_values
+          widget: list
+          required: false
+          field:
+            label: Number
+            name: n
+            widget: number
+            value_type: int
+        - label: Chart small note
+          name: chart_note
+          widget: string
+          required: false
+      - label: Questions and answers (FAQ)
+        name: faq
+        widget: object
+        summary: FAQ
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Questions
+          name: items
+          widget: list
+          required: false
+          fields:
+          - label: Question
+            name: question
+            widget: string
+          - label: Answer
+            name: answer
+            widget: text
+          summary: '{{fields.question}}'
+      - label: Contact form
+        name: contact
+        widget: object
+        summary: Contact form
+        fields:
+        - label: Anchor
+          name: anchor
+          widget: string
+          required: false
+        - label: Small label
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+        - label: Text
+          name: text
+          widget: text
+          required: false
+        - label: Show big phone number
+          name: show_phone
+          widget: boolean
+          default: true
+        - label: Show Call / WhatsApp buttons
+          name: show_buttons
+          widget: boolean
+          default: true
+        - label: Call button text
+          name: call_text
+          widget: string
+          required: false
+        - label: WhatsApp button text
+          name: whatsapp_text
+          widget: string
+          required: false
+        - label: Service choices in the dropdown (empty = no dropdown)
+          name: services
+          widget: list
+          required: false
+          field:
+            label: Choice
+            name: choice
+            widget: string
+        - label: Form button text
+          name: button_text
+          widget: string
+          required: false
+        - label: Small note under the form
+          name: note
+          widget: string
+          required: false
+        - label: Page to open after sending
+          name: thank_you_url
+          widget: string
+          required: false
+          hint: Default /thank-you.html . Use another thank-you page address if you made one.
+        - label: Form name for tracking
+          name: form_name
+          widget: string
+          required: false
+          hint: Sent to Google Tag Manager, e.g. contact_form or landing_form
+        - label: Email subject
+          name: email_subject
+          widget: string
+          required: false
+        - label: Ask for email
+          name: ask_email
+          widget: boolean
+          default: true
+        - label: Ask for business name
+          name: ask_business
+          widget: boolean
+          default: true
+        - label: Ask for message
+          name: ask_message
+          widget: boolean
+          default: true
+        - label: Name label
+          name: name_label
+          widget: string
+          required: false
+        - label: Phone label
+          name: phone_label
+          widget: string
+          required: false
+        - label: Message placeholder
+          name: message_placeholder
+          widget: string
+          required: false
+        - label: Message while sending
+          name: sending_text
+          widget: string
+          required: false
+        - label: Error message
+          name: error_text
+          widget: string
+          required: false
+      - label: Call-to-action banner
+        name: cta
+        widget: object
+        summary: 'Banner: {{title}}'
+        fields:
+        - label: Anchor
+          name: anchor
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+        - label: Text
+          name: text
+          widget: text
+          required: false
+        - label: Button 1 text
+          name: button_text
+          widget: string
+          required: false
+        - label: Button 1 link
+          name: button_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+        - label: Button 2 text
+          name: button2_text
+          widget: string
+          required: false
+        - label: Button 2 link
+          name: button2_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Text block
+        name: text
+        widget: object
+        summary: 'Text: {{title}}'
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Text
+          name: body
+          widget: markdown
+        - label: Alignment
+          name: align
+          widget: select
+          options:
+          - left
+          - center
+          required: false
+          default: left
+        - label: Wide
+          name: wide
+          widget: boolean
+          default: false
+      - label: Photo + text
+        name: image_text
+        widget: object
+        summary: 'Photo: {{title}}'
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Photo
+          name: image
+          widget: image
+          required: false
+        - label: Photo description
+          name: image_alt
+          widget: string
+          required: false
+        - label: Photo side
+          name: image_side
+          widget: select
+          options:
+          - left
+          - right
+          required: false
+          default: left
+        - label: Text
+          name: body
+          widget: markdown
+          required: false
+        - label: Button text
+          name: button_text
+          widget: string
+          required: false
+        - label: Button link
+          name: button_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Photo gallery
+        name: gallery
+        widget: object
+        summary: Gallery
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Photos per row
+          name: columns
+          widget: select
+          options:
+          - '2'
+          - '3'
+          - '4'
+          required: false
+          default: '3'
+        - label: Photos
+          name: images
+          widget: list
+          required: false
+          fields:
+          - label: Photo
+            name: image
+            widget: image
+            required: false
+          - label: Caption
+            name: caption
+            widget: string
+            required: false
+          summary: '{{fields.caption}}'
+      - label: Logo strip (clients)
+        name: logos
+        widget: object
+        summary: Logos
+        fields:
+        - label: Small title
+          name: title
+          widget: string
+          required: false
+        - label: Logos
+          name: images
+          widget: list
+          required: false
+          fields:
+          - label: Logo
+            name: image
+            widget: image
+            required: false
+          - label: Name
+            name: name
+            widget: string
+            required: false
+          summary: '{{fields.name}}'
+      - label: Testimonials
+        name: testimonials
+        widget: object
+        summary: Testimonials
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: People
+          name: items
+          widget: list
+          required: false
+          fields:
+          - label: What they said
+            name: quote
+            widget: text
+          - label: Name
+            name: name
+            widget: string
+          - label: Role / company
+            name: role
+            widget: string
+            required: false
+          - label: Photo
+            name: photo
+            widget: image
+            required: false
+          summary: '{{fields.name}}'
+      - label: Pricing plans
+        name: pricing
+        widget: object
+        summary: Pricing
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Plans
+          name: plans
+          widget: list
+          required: false
+          fields:
+          - label: Plan name
+            name: name
+            widget: string
+          - label: Price
+            name: price
+            widget: string
+          - label: After price (like /month)
+            name: period
+            widget: string
+            required: false
+          - label: Short text
+            name: text
+            widget: text
+            required: false
+          - label: What is included
+            name: features
+            widget: list
+            required: false
+            field:
+              label: Item
+              name: item
+              widget: string
+          - label: Button text
+            name: button_text
+            widget: string
+            required: false
+          - label: Button link
+            name: button_link
+            widget: string
+            required: false
+            hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+          - label: Highlight as most popular
+            name: popular
+            widget: boolean
+            default: false
+          - label: Badge text
+            name: badge
+            widget: string
+            required: false
+          summary: '{{fields.name}}'
+      - label: Video (YouTube or Vimeo)
+        name: video
+        widget: object
+        summary: Video
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Video link
+          name: url
+          widget: string
+          hint: Paste the YouTube or Vimeo address.
+      - label: Custom embed (calendar, map, code)
+        name: embed
+        widget: object
+        summary: Embed
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Embed code (HTML)
+          name: code
+          widget: text
+      typeKey: type
+      summary: '{{fields.title}}'
+  - label: Thank-you page
+    name: thanks
+    file: content/thank-you.json
+    fields:
+    - label: Google title
+      name: seo_title
+      widget: string
+      required: false
+    - label: Tag Manager event name
+      name: event
+      widget: string
+      required: false
+      hint: Default lead_thank_you_view
+    - label: Back link text
+      name: back_text
+      widget: string
+      required: false
+    - label: Page sections
+      hint: Click Add to put in a new section. Use the arrows or drag to reorder, and the X to remove.
+      name: sections
+      widget: list
+      required: false
+      types:
+      - label: Thank-you message
+        name: thankyou
+        widget: object
+        summary: Thank you
+        fields:
+        - label: Title
+          name: title
+          widget: string
+        - label: Text
+          name: text
+          widget: text
+          required: false
+        - label: Next steps
+          name: steps
+          widget: list
+          required: false
+          fields:
+          - label: Step
+            name: text
+            widget: string
+          summary: '{{fields.text}}'
+        - label: Extra line above buttons
+          name: extra_text
+          widget: string
+          required: false
+        - label: Button 1 text
+          name: button_text
+          widget: string
+          required: false
+        - label: Button 1 link
+          name: button_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+        - label: Button 2 text
+          name: button2_text
+          widget: string
+          required: false
+        - label: Button 2 link
+          name: button2_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Call-to-action banner
+        name: cta
+        widget: object
+        summary: 'Banner: {{title}}'
+        fields:
+        - label: Anchor
+          name: anchor
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+        - label: Text
+          name: text
+          widget: text
+          required: false
+        - label: Button 1 text
+          name: button_text
+          widget: string
+          required: false
+        - label: Button 1 link
+          name: button_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+        - label: Button 2 text
+          name: button2_text
+          widget: string
+          required: false
+        - label: Button 2 link
+          name: button2_link
+          widget: string
+          required: false
+          hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Text block
+        name: text
+        widget: object
+        summary: 'Text: {{title}}'
+        fields:
+        - label: Section anchor
+          name: anchor
+          widget: string
+          required: false
+          hint: 'A short name so menu links can jump here. Example: services lets the menu link /#services work.'
+        - label: Background
+          name: background
+          widget: select
+          options:
+          - normal
+          - alt
+          required: false
+          default: normal
+          hint: alt = slightly different shade to separate sections
+        - label: Small label above the title
+          name: eyebrow
+          widget: string
+          required: false
+        - label: Title
+          name: title
+          widget: string
+          required: false
+          hint: 'Put *stars* around words to make them blue. Example: Grow *faster*'
+        - label: Text under the title
+          name: subtitle
+          widget: text
+          required: false
+        - label: Text
+          name: body
+          widget: markdown
+        - label: Alignment
+          name: align
+          widget: select
+          options:
+          - left
+          - center
+          required: false
+          default: left
+        - label: Wide
+          name: wide
+          widget: boolean
+          default: false
+      typeKey: type
+      summary: '{{fields.title}}'
+  - label: Brand, colors, fonts, menu, tracking
+    name: settings
+    file: content/site.json
+    fields:
+    - label: Brand
+      name: brand
+      widget: object
+      fields:
+      - label: Business name
+        name: name
+        widget: string
+      - label: Logo
+        name: logo
+        widget: image
+        required: false
+        hint: PNG or SVG with transparent background.
+      - label: Logo height (pixels)
+        name: logo_height
+        widget: number
+        value_type: int
+        min: 20
+        max: 120
+        default: 50
+      - label: Browser tab icon (favicon)
+        name: favicon
+        widget: image
+        required: false
+    - label: Colors
+      name: colors
+      widget: object
+      fields:
+      - label: Main color
+        name: blue
+        widget: color
+        allowInput: true
+      - label: Accent color
+        name: cyan
+        widget: color
+        allowInput: true
+      - label: Background color
+        name: background
+        widget: color
+        allowInput: true
+      - label: Text color
+        name: text
+        widget: color
+        allowInput: true
+        required: false
+      - label: Mode
+        name: mode
+        widget: select
+        options:
+        - auto
+        - dark
+        - light
+        required: false
+        default: auto
+        hint: auto decides from the background color
+    - label: Fonts
+      name: fonts
+      widget: object
+      fields:
+      - label: Headline font
+        name: heading
+        widget: select
+        options:
+        - Syne
+        - Poppins
+        - Space Grotesk
+        - Playfair Display
+        - Lora
+        - Manrope
+        - Inter
+        - Montserrat
+        - Raleway
+        - DM Sans
+        - Outfit
+        required: false
+      - label: Body font
+        name: body
+        widget: select
+        options:
+        - Manrope
+        - Inter
+        - Poppins
+        - DM Sans
+        - Outfit
+        - Montserrat
+        - Raleway
+        - Lora
+        required: false
+    - label: Header and mobile bar
+      name: header
+      widget: object
+      fields:
+      - label: Header button text (use {phone})
+        name: button_text
+        widget: string
+      - label: Header button link
+        name: button_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Show call bar at bottom on phones
+        name: show_mobile_bar
+        widget: boolean
+        default: true
+      - label: 'Phone bar: call text'
+        name: mobile_call_text
+        widget: string
+        required: false
+      - label: 'Phone bar: WhatsApp text'
+        name: mobile_whatsapp_text
+        widget: string
+        required: false
+    - label: Menu links
+      name: nav
+      widget: list
+      required: true
+      fields:
+      - label: Name
+        name: label
+        widget: string
+      - label: Link
+        name: url
+        widget: string
+        hint: 'Examples: /#services , /blog/ , /about/'
+      summary: '{{fields.label}}'
+    - label: Footer
+      name: footer
+      widget: object
+      fields:
+      - label: Footer text
+        name: text
+        widget: string
+        hint: '{year} and {brand} fill in automatically'
+      - label: Show phone number
+        name: show_phone
+        widget: boolean
+        default: true
+      - label: Footer links
+        name: links
+        widget: list
+        required: false
+        fields:
+        - label: Name
+          name: label
+          widget: string
+        - label: Link
+          name: url
+          widget: string
+      - label: Social links
+        name: social
+        widget: list
+        required: false
+        fields:
+        - label: Name (Facebook, Instagram...)
+          name: label
+          widget: string
+        - label: Link
+          name: url
+          widget: string
+    - label: Contact details
+      name: contact
+      widget: object
+      fields:
+      - label: Phone as shown on site
+        name: phone_display
+        widget: string
+      - label: Phone with country code, digits only
+        name: phone_intl
+        widget: string
+        hint: 'Example: 8801776272503'
+      - label: WhatsApp number (digits, optional)
+        name: whatsapp
+        widget: string
+        required: false
+        hint: Leave empty to use the phone number
+      - label: Email
+        name: email
+        widget: string
+        required: false
+      - label: Address
+        name: address
+        widget: string
+        required: false
+    - label: Tracking and forms
+      name: tracking
+      widget: object
+      fields:
+      - label: Google Tag Manager ID
+        name: gtm_id
+        widget: string
+        required: false
+        hint: Looks like GTM-ABC1234
+      - label: Extra code for the head (advanced, optional)
+        name: head_code
+        widget: text
+        required: false
+      - label: Extra code for the start of body (advanced, optional)
+        name: body_code
+        widget: text
+        required: false
+    - label: Form (Web3Forms)
+      name: form
+      widget: object
+      fields:
+      - label: Web3Forms access key
+        name: web3forms_key
+        widget: string
+      - label: Email subject
+        name: email_subject
+        widget: string
+    - label: Website address and options
+      name: site
+      widget: object
+      fields:
+      - label: Website address
+        name: url
+        widget: string
+        required: false
+        hint: Like https://yourdomain.com once live. Helps Google.
+      - label: Language code
+        name: language
+        widget: string
+        default: en
+      - label: Show loading screen on the home page
+        name: show_preloader
+        widget: boolean
+        default: true
+      - label: Loading screen text
+        name: preloader_text
+        widget: string
+        required: false
+      - label: Area served (for Google)
+        name: area_served
+        widget: string
+        required: false
+      - label: Business type (for Google)
+        name: business_type
+        widget: string
+        required: false
+        hint: 'Example: ProfessionalService, LocalBusiness, Dentist, Plumber'
+    - label: Blog page text
+      name: blog
+      widget: object
+      fields:
+      - label: Google title
+        name: seo_title
+        widget: string
+      - label: Google description
+        name: seo_description
+        widget: text
+      - label: Small label
+        name: eyebrow
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Intro
+        name: intro
+        widget: text
+        required: false
+      - label: Text when no posts
+        name: empty_text
+        widget: string
+        required: false
+      - label: Bottom banner title
+        name: cta_title
+        widget: string
+        required: false
+      - label: Bottom banner text
+        name: cta_text
+        widget: text
+        required: false
+      - label: Banner button 1
+        name: cta_button
+        widget: string
+        required: false
+      - label: Banner link 1
+        name: cta_link
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
+      - label: Banner button 2
+        name: cta_button2
+        widget: string
+        required: false
+      - label: Banner link 2
+        name: cta_link2
+        widget: string
+        required: false
+        hint: Type /#contact (scroll to a section), /blog/ , /about/ , a full https:// address, or the word call or whatsapp for phone buttons.
